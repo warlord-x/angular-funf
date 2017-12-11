@@ -1,0 +1,11 @@
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="username"
+  (input)="onUserNameEntry($event)"
+/>
+<p>
+{{username}}
+</p>
+
+<button class="btn-primary btn" [disabled]="userNameEmpty" (click)="onResetClick()">Reset</button>
