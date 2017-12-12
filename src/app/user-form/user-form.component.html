@@ -9,3 +9,19 @@
 </p>
 
 <button class="btn-primary btn" [disabled]="userNameEmpty" (click)="onResetClick()">Reset</button>
+
+<p [ngStyle]="{display:getDisplay()}">user details</p>
+
+<div *ngFor="let clickedValue of clicksList; let i=index;">
+  <p *ngIf="i>4;else noBgColor"
+     [ngStyle]="{backgroundColor:'blue'}"
+     [ngClass]='{online:true}'
+  >
+    {{clickedValue}}
+  </p>
+  <ng-template #noBgColor>
+    <p>{{clickedValue}}</p>
+  </ng-template>
+</div>
+
+<button class="btn-primary btn" (click)="onDisplayDetails()">{{toggleButtonText}} Details</button>
