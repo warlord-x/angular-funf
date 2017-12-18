@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-user-form',
@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   `]
 })
 export class UserFormComponent implements OnInit {
+
+  @Output() userCreated = new EventEmitter();
 
   username: string = '';
   userNameEmpty: boolean = true;
@@ -35,6 +37,7 @@ export class UserFormComponent implements OnInit {
     this.detailsDisplay = !this.detailsDisplay;
     this.toggleButtonText == 'hide' ? this.toggleButtonText='show': this.toggleButtonText='hide';
     this.clicksList.push('clickAdded at : '+new Date());
+    this.userCreated.emit('userxnamedx');
   }
   getDisplay(){
     return this.detailsDisplay == true ? 'block' : 'none';

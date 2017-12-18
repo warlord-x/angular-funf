@@ -9,4 +9,8 @@ export class AppComponent {
   title = 'changed';
   name = 'what';
   sharedWarningTextInApp = 'set from appcomponent';
+
+  userCreatedEvent(event: any){
+    console.log(event);
+  }
 }
